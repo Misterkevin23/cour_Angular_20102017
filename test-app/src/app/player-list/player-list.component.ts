@@ -26,22 +26,27 @@ addPlayer(player: Player)
   console.log(player.num);
   if(player.num != -1)
   {
-    this.playerService.addPlayer(player)
-      .map(data =>data.json())
-      .subscribe(data => {
-        console.log(data);
-        if(data.msg =="ok")
-        {
-          this.players.push(player);
-          this.message="Joueur ajouter avec succes";
-        }
-        else
-        {
-          this.message="Impossible d'enregistrer le joueur";
-        }
-      });
-    // this.players.push(player);
-    // this.message="Joueur ajouter avec succes";
+    if(player.team && player.team != "-1")
+    {
+      this.playerService.addPlayer(player)
+        .map(data =>data.json())
+        .subscribe(data => {
+          console.log(data);
+          if(data.msg =="ok")
+          {
+            this.players.push(player);
+            this.message="Joueur ajouter avec succes";
+          }
+          else
+          {
+            this.message="Impossible d'enregistrer le joueur";
+          }
+        });
+    }
+    else
+    {
+        this.message="Veuillez choisir une équipe";
+    }
   }
   else
   {
