@@ -1,0 +1,6 @@
+https://github.com/cdufour/dnt2-angular
+
+
+Depuis le dossier server/
+npm install express --save
+npm install body-parser --save

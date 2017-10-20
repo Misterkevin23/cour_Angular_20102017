@@ -1,0 +1,32 @@
+/* code provenant d'une démo JSBIN */
+
+var test = Rx.Observable.of(1,2,3);
+test.subscribe(function(v) {
+  //console.log(v);
+});
+
+var test2 = Rx.Observable.of("Kevin","Francis","Bintou");
+test2.subscribe(function(v) {
+  //console.log(v + ' contient ' + v.length + ' caractères');
+});
+
+var players = ['Baggio', 'Neymar', 'Nadal'];
+
+var playersObs = Rx.Observable.from(players);
+//playersObs.subscribe(player => console.log(player));
+
+let joueurs = [
+  {nom: 'Chiellini', numero: 3},
+  {nom: 'Buffon', numero: 1},
+  {nom: 'Dybala', numero: 10},
+];
+
+let source = Rx.Observable.fromArray(joueurs);
+//let sourceFiltered = source.filter(j => j.numero < 4);
+//sourceFiltered.subscribe(j => console.log(j.nom));
+
+source
+  .filter(j => j.numero < 4)
+  .map(j => j.nom.length)
+  .map(j => j * 2)
+  .subscribe(j => console.log(j));

@@ -1,0 +1,41 @@
+EXO
+Lorsque le nb de clics atteint ou dépasse 5,
+remettre le compteur à 0
+
+
+Sur le template player.component.html afficher les
+joueurs sous forme d'un tableau de
+3 colonnes (Nom, Prénom, Numéro)
+
+En utilisant la directive *ngIf, afficher la mention "Au chômage" si le
+joueur n'a pas d'équipe
+
+
+Alimenter le menu de sélection de couleurs depuis le player.component.ts
+qui devra définir un tableau de 10 couleurs.
+Utilser la directive *ngFor dans le template
+
+
+Ajouter une colonne Photo dans le tableau. Afficher une photo
+pour chacun des joueurs.
+
+
+Modifier le formulaire d'ajout d'un joueur:
+- Pour le champ numéro: proposer un menu de sélection avec
+des valeurs allant de 0 à 99
+- Ajouter un champ permettant de renseigner l'url de la photo
+associée au joueur
+- Ajouter un champ permettant de renseigner l'équipe
+
+
+Afficher au-dessus de la liste de joueurs le nombre de joueurs
+enregistrés
+
+
+Si aucune url de photo n'est indiquée lors de
+l'ajout de joueur : utiliser une image par défaut
+
+
+Si aucun numéro de maillot n'a été sélectionné:
+- pas d'enregistrement
+- affichage d'une notification "Vous devez choisir un numéro"
