@@ -1,0 +1,36 @@
+/*Code provenant d'une démo JSBIN*/
+//library RxJs 4
+//<script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/4.0.6/rx.all.js"></script>
+
+var test= Rx.Observable.of(1,2,3); //of permet de tranformer des valeurs individuel
+//en observable
+test.subscribe(function(v){ // subscribe correspond à la dernière instruction de du superObject obsevable
+  //console.log(v);
+});
+
+var test2= Rx.Observable.of("soleil","Francis","Bintou");
+test2.subscribe(function(v){
+  //console.log(v + " contient " + v.length + ' caractères');
+});
+
+var players = ["Baggio", "Neymar", "Nadal"];
+var playerObs = Rx.Observable.from(players); // permet de tranformer les donnée d'un tableau
+//en observable
+//playerObs.subscribe((player) => console.log(player) );
+
+let joueurs = [
+  {nom: 'Chiellini', numero: 3},
+  {nom: 'Buffon', numero: 1},
+  {nom: 'Dybala', numero: 10},
+];
+
+let source = Rx.Observable.fromArray(joueurs); //from plus precis pour les tableau
+//filter exclue ou retiens des donnée d'un tableau en fonction d'une opération bolean
+//let sourceFiltered = source.filter(j => j.numero < 4);
+//sourceFiltered.subscribe (j => console.log(j.nom));
+
+source
+  .filter(j => j.numero < 4) //on peut chainer la autent d'operateur que l'on veut
+  .map(j => j.nom.length)  //map permet de prendre une valeur entré et de le transformer en un autre
+  .map(j => j * 2)
+  .subscribe (j => console.log(j));

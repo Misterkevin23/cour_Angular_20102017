@@ -1,0 +1,106 @@
+/********************************Framework JS******************************************/
+
+    Angular - Crée par google
+    React   - Crée par facebook
+
+/****************************************************************************************************/
+
+/****************************************VirtualBox*************************************************/
+/************************Configuration****************************/
+
+      General->avancer->bidirectionnel pour les deux option
+      Stockage->controleur IDE -> mettre le chemin du cd virtuel
+
+/****************************************************************************************************/
+
+/*********************************NodeJS***********************************************************/
+
+      Possibilité: Application Destop->election
+                    Server->ExpressJS
+
+/**************Instalation sur Ubuntu**************************/
+
+      °sudo apt install nodejs-legacy
+      °node -v (-->verifie la version)
+      °sudo apt install curl (-->Petit utilitaire permettant de faire plein de truc)
+      °curl -SL https://deb.nodesource.com/setup_8.x | sudo -E bash - (-->Télécharge la mise a jour de la version de nodeJS)
+      °sudo apt-get install nodejs (-->Installe la nouvelle version)
+      (-->sudo permet d'etre en tant que super administrateur)
+
+
+/****************************************************************************************************/
+
+/*********************************Atom*************************************************************/
+
+/**************Instalation sur Ubuntu**************************/
+
+      °sudo add-apt-repository paa: webupd8team/atom (-->Ajoute tout les package atom à la repository)
+      °sudo apt update (-->Mise a jour de la repository)
+      °sudo apt install atom
+
+/**************Stylisation**************************/
+
+      Edit --> Preference --> Instal
+
+      /**Redaction du Typescript**/
+
+      Package ->atom-typescript  ->accepter les module additionnel
+
+
+/****************************************************************************************************/
+
+/****************************Babel******************************************************************/
+
+    Transpileur ES6 En ES5
+        ->TypeScrip ES6++: Language de programmation crée par Microsoft
+
+    Babal.com à un onglet "try it" pour tester le language ES6 et voir la correspondance en ES5
+
+/****************************************************************************************************/
+
+/***********************Utilisation de l'invite commande*********************************************/
+
+          Ctrl+shift+t :ouvre un autre onglet dans le terminal
+          mkdir : Cree un dossier
+          touch: Crée un fichier
+          node [fichier] : permet de lire un fichier avec le nodeJS
+          atom [fichier] :ouvre le fichier avec atom
+          atom . : ouvre le dossier actuel sous atom
+
+/****************************************************************************************************/
+
+/******************************Angular.io************************************************************/
+/****************Instalation sur ubuntu*********************/
+
+        °sudo npm install -g @angular/cli (-->Install angular cli [aide pour la creation d'un projet angular])
+        ° ng new [nom du projet] (-->Crée un dossier pour le projet avec tout les composant nessessaire)
+        °ng serve (-->lance le serveur qui ecoute le port 4200)
+
+/****************environnement de travail*********************/
+          Sous dossier src (-->gestion de l'application)
+          Un composant est constitué de 3 fichier principalement:
+              -Fichier HTML
+              -Fichier CSS
+              -Fichier TS
+
+        /*Decorateur*/
+        @component --> Crée une nouvelle balise html
+        app-root = ng-app dans angularJS
+
+        /*Index.html*/
+        localisation: DOssier src --> contient le DOCTYPE
+
+        /*Creation d'un module enfant*/
+        ng g c [nom_du_module]
+
+        /*Propriete Binding*/
+        [propriete]= expression du controleur vers la view
+
+        /*event Binding*/
+        (event) = expression de la view vers le composant
+
+        /*([])*/  ->expression bidirectionnel
+
+        /*Communication entre les composant*/
+        Class Input et Output s'utilise dans le cadre de communication enter-Composant
+        @Input est "l'oreille" du module enfant

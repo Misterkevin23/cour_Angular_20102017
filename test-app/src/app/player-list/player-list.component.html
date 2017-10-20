@@ -1,0 +1,19 @@
+<add-player (myEvent)="addPlayer($event)"></add-player>
+
+<p>nombre de joueurs enregistrés: {{players.length}}</p>
+
+<div>{{message}}</div>
+
+<div *ngIf="!playersLoaded">
+  <p>Donnée en cours de chargement ...</p>
+  <img src= "assets/img/spinner.gif">
+</div>
+
+<div *ngIf="playersLoaded">
+  <player
+  [data]="player"
+  (deleteEvent)="deletePlayer($event)"
+  *ngFor="let player of players"
+  >
+  </player>
+</div>

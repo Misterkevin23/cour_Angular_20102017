@@ -1,0 +1,70 @@
+<!-- <p>
+  {{player1.firstname}} {{player1.lastname}}
+</p>
+
+<ul>
+  <li *ngFor="let player of players">{{player.firstname}} {{player.lastname}}</li>
+</ul> -->
+<!-- <p>{{t}}</p> -->
+<!-- Remplace par la valeur de t donnée par la class-->
+<!-- <p [innerText]="t"></p>  -->
+<!-- Remplace par une chaine de caractere-->
+<!-- <p [innerText]="'toto'"></p>  -->
+
+<!-- <div>
+  <input
+    type="text"
+    (keyup)="saisie($event)"
+    (mouseenter)="souris()">
+  <span>{{t}}</span>
+</div> -->
+
+<div>
+  <!-- la valeur de l'input est stocker dans la variable t1000 automatiquement, couteuse en resource-->
+  <!-- Cette structure n'est possible que grace au chargement du moddule formsModule -->
+  <!-- <input type="text" [(ngModel)]="t1000">
+  <span>{{t1000}}</span> -->
+  <input type="checkbox" [(ngModel)] ="cb">
+  <span *ngIf="cb">Afficher</span>
+  <span *ngIf="!cb">Masquer</span>
+  tableau
+  <select  [(ngModel)]="selectColor">
+    <option *ngFor="let couleur of couleurs" value="{{couleur}}">{{couleur}}</option>
+  </select>
+</div>
+
+<add-player
+  [c1]="selectColor"
+  [c2]= "defaultColor"
+  (myEvent)="addPlayer($event)"
+>
+</add-player>
+
+<table *ngIf="!cb" class="table table-striped table-bordered">
+  <tr>
+    <th>#</th>
+    <th>Nom</th>
+    <th>Prenom</th>
+    <th>Numeros</th>
+    <th>Equipe</th>
+    <th>Image</th>
+  </tr>
+  <tr
+    *ngFor="let player of players; index as i"
+     [ngClass]="{
+                  'lost':player.team == 'PSG',
+                  'toto': true
+                }"
+  >
+    <td>{{i+1}}</td>
+    <td>{{player.lastname}}</td>
+    <td>{{player.firstname}}</td>
+    <td>{{player.num}}
+      <span *ngIf="player.num == 10">(Meneur de jeu)</span>
+    </td>
+    <td [ngStyle]="{'color': selectColor, 'font-size': '42px'}">{{player.team}}
+      <span *ngIf="!player.team">Au chômage</span>
+    </td>
+    <td><img src={{player.image}} ></td>
+  </tr>
+</table>

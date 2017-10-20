@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      {{data.firstname}}
+    </div>
+    <div class="col-sm-3">
+      {{data.lastname}}
+    </div>
+    <div class="col-sm-3">
+      <img [src]="data.image">
+    </div>
+    <div class="col-sm-3">
+      <a routerLink="player/{{data.lastname}}" class="btn btn-primary btn-xs">Détails</a>
+      <button
+      class="btn btn-danger btn-xs"
+      (click)="deletePlayer()">Supprimer</button>
+    </div>
+
+</div>
