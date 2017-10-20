@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TeamService } from '../team.service';
 import { Team } from '../team/team';
+import 'rxjs/add/operator/delay'; //operateur permettant de mettre des delai avant l'operation suivante de l'observable
 
 @Component({
   selector: 'app-team-list',
@@ -10,6 +11,7 @@ import { Team } from '../team/team';
 export class TeamListComponent implements OnInit {
 
   teams:Team[] = []; //typage du tableau
+  teamsLoaded:boolean = false;
 
   constructor(private teamService:TeamService) { }
 
@@ -19,6 +21,7 @@ export class TeamListComponent implements OnInit {
       .subscribe((teams:Team[]) => {
         this.teams = teams; // assigner les equipes à une propriété du composante
         this.teamService.teams = teams; //assigner les equipes a une propriété du service
+        this.teamsLoaded = true;
         console.log(teams);
       });
   }

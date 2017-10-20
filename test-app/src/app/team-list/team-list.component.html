@@ -1,9 +1,13 @@
-<p>
-  okkk
-</p>
-<app-team
+<div *ngIf="!teamsLoaded">
+  <p>Donnée en cours de chargement ...</p>
+  <img src= "assets/img/spinner.gif">
+</div>
+
+
+<div *ngIf="teamsLoaded">
+  <app-team
   [data]="team"
   *ngFor="let team of teams"
->
-
-</app-team>
+  >
+  </app-team>
+</div>

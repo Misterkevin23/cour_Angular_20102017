@@ -23,6 +23,7 @@ export class PlayerListComponent implements OnInit {
 
 addPlayer(player: Player)
 {
+  console.log(player.num);
   if(player.num != -1)
   {
     this.playerService.addPlayer(player)
@@ -39,8 +40,8 @@ addPlayer(player: Player)
           this.message="Impossible d'enregistrer le joueur";
         }
       });
-    this.players.push(player);
-    this.message="Joueur ajouter avec succes";
+    // this.players.push(player);
+    // this.message="Joueur ajouter avec succes";
   }
   else
   {

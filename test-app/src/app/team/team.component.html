@@ -1,16 +1,26 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-lg-3">
       {{data.teamname}}
     </div>
-    <div class="col-sm-3">
+    <div class="col-lg-3">
       {{data.country}}
     </div>
-    <div class="col-sm-3">
-      {{data.joueur}}
+    <div
+    *ngIf="data.joueur.length == 1"
+    class="row col-lg-3">
+      <p>Cette equipe est composeé de :{{data.joueur.length}}</p>
+      <a routerLink="../player/{{data.joueur}}" class="btn btn-primary btn-xs">{{data.joueur[0].firstname}} {{data.joueur[0].lastname}}</a><hr>
     </div>
-    <div class="col-sm-3">
-      <a routerLink="../player/{{data.joueur}}" class="btn btn-primary btn-xs">Détails</a>
+    <div
+    *ngIf="data.joueur.length > 1"
+    class="row col-lg-3">
+      <p>Cette equipe est composeé de :{{data.joueur.length}}</p>
+      <div
+      *ngFor="let j of data.joueur"
+      class="row col-lg-6">
+        <a routerLink="../player/{{j.firstname}}" class="btn btn-primary btn-xs">{{j.firstname}} {{j.lastname}}</a><hr>
+      </div>
     </div>
-
+  </div>
 </div>

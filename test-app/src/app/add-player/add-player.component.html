@@ -4,11 +4,11 @@
   Prénom <input type="text" [(ngModel)]=newPlayer.lastname>
   <!-- Numéro <input type="text" [(ngModel)]=newPlayer.num> -->
   <select [(ngModel)]=newPlayer.num>
-    <option value="-1">Choisir un numéro</option>
+    <option value=-1>Choisir un numéro</option>
     <option *ngFor="let n of number_list">{{n}}</option>
   </select>
   <select [(ngModel)]=newPlayer.team>
-    <option value="-1" selected ="true">Choisir une equipe</option>
+    <option value="-1" selected>Choisir une equipe</option>
     <option *ngFor="let equipe of equipes">{{equipe}}</option>
   </select>
   <!-- Equipe <input type="text" [(ngModel)]=newPlayer.team> -->

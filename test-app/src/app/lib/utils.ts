@@ -7,4 +7,4 @@ export function range(from:number, to:number):number[]{
   return r;
 }
 
-export const equipes:string[] = ['PSG', 'Juventus', 'Real Madrid', 'Bordeaux'];
+export const equipes:string[] = ['PSG', 'Juventus', 'Real Madrid'];

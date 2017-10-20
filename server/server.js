@@ -13,9 +13,18 @@ var players = [
 ];
 
 var equipe = [
-  {id:1, teamname: 'PSG', country:'France', joueur:'Platini'},
-  {id:2, teamname: 'Juventus', country:'Espagne', joueur:'Nedved'},
-  {id:3, teamname: 'Real Madrid', country:'Espagne', joueur:'Meunier'},
+  {id:1, teamname: 'PSG', country:'France', joueur:[
+    {firstname: 'Michel', lastname:'Platini'},
+    {firstname: 'Pavel', lastname:'Nedved'}
+  ]},
+  {id:2, teamname: 'Juventus', country:'Espagne', joueur:[
+    {firstname: 'Pavel', lastname:'Nedved'}
+  ]},
+  {id:3, teamname: 'Real Madrid', country:'Espagne', joueur:[
+    {firstname: 'Michel', lastname:'Platini'},
+    {firstname: 'Pavel', lastname:'Nedved'},
+    {firstname: 'Thomas', lastname:'Meunier'}
+  ]},
 ];
 
 //Middlewares
@@ -25,7 +34,7 @@ app.use(bodyParser.json()); //decoder le json present dans le champs body  des r
 //autorisation des requetes CORS
 app.use(function(req, res, next){
   res.header("Access-Control-Allow-Origin", "*"); //greffe des donnée permettant au serveur d'accepter tout type d'origine de domaine
-  res.header("Access-Control-Allow-Header", "Origin, X-Requested-with, Content-Type, Accept"); //accept tout type de requete (Ajax et autre)
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-with, Content-Type, Accept"); //accept tout type de requete (Ajax et autre)
   res.header("Access-Control-Allow-Methods", "*");//accept en plus des methode GET et POST les methode PUT et DELETE
   next();
 });
@@ -47,23 +56,23 @@ app.get('/players/:lastname', (req, res) => {
   res.json(player);
 });
 
-app.post('/player', (req,res) => {
+app.post('/players', (req,res) => {
   let player = {
     firstname: req.body.firstname,  //extration du champs firstname de l'envoi
     lastname: req.body.lastname,
     num: req.body.num,
     team: req.body.team,
-    photo: req.body.photo
+    image: req.body.image
   };
-  //if(req.body.firstname && req.body.lastname && req.body.num)  //recommendation verifier les donnée avant enregistreemnt
-  //{
+  if(req.body.firstname && req.body.lastname && req.body.num)  //recommendation verifier les donnée avant enregistreemnt
+  {
     players.push(player);
-    res.json({msg: "ok"})
-//  }
-  //else
-//  {
+    res.json({msg: "ok"});
+ }
+  else
+ {
     res.json({msg: "erreur"});
-//  }
+ }
 
 });
 

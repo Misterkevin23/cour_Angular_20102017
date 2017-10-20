@@ -57,6 +57,7 @@ export class AddPlayerComponent implements OnInit {
     this.number_list=range(1,100);
     this.equipes=equipes;
     console.log(this.number_list);
+    console.log(this.equipes);
   }
 
 }
